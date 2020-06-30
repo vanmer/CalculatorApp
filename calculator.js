@@ -3,6 +3,7 @@ const input_element = document.querySelector(".input");
 const output_result_element = document.querySelector(".result .value");
 const output_operation_element = document.querySelector(".operation .value");
 
+// variables
 // calculator buttons array
 let calculator_buttons = [
   {
@@ -119,7 +120,13 @@ let calculator_buttons = [
     formula: "=",
     type: "calculate"
   },
-]
+];
+
+// calculator data
+let data = {
+  operation: [],
+  result: []
+}
 
 // create calculator buttons
 function createButtons() {
@@ -148,12 +155,6 @@ input_element.addEventListener("click", event => {
   })
 })
 
-// calculator data
-let data = {
-  operation: [],
-  result: []
-}
-
 // calculator function
 function calculator(button) {
   if ( button.type == "operator" ) {
@@ -178,8 +179,11 @@ function calculator(button) {
     let join_result = data.result.join('');
     let result = eval(join_result);
 
+    formatResult(result);
+
     updateOutputResult(result);
 
+    // clear all arrays
     data.operation = [];
     data.result = [];
 
@@ -198,4 +202,42 @@ function updateOutputOperation(operation) {
 
 function updateOutputResult(result) {
   output_result_element.innerHTML = result;
+}
+
+// format result
+function formatResult(result) {
+  const max_output_number_length = 10;
+  const output_precision = 5;
+
+  if ( digitCounter(result) > max_output_number_length ) {
+    if (isFloat(result)) {
+      const result_int = parseInt(result);
+      const result_int_length = digitCounter(result_int);
+
+      if (result_int_length > max_output_number_length) {
+        return result.toPrecision(output_precision);
+      }
+      else {
+        const num_of_digits_after_point = max_output_number_length - result_int_length;
+        return result.toFixed(num_of_digits_after_point);
+      }
+    }
+    else {
+      // if the number is an integer
+      return result.toPrecision(output_precision)
+    }
+  }
+  else {
+    return result;
+  }
+}
+
+// digit counter
+function digitCounter(number) {
+  return number.toString().length;
+}
+
+// check if number is a float or not
+function isFloat(number) {
+  return number % 1 != 0;
 }
