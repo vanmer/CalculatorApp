@@ -179,7 +179,7 @@ function calculator(button) {
     let join_result = data.result.join('');
     let result = eval(join_result);
 
-    formatResult(result);
+    result = formatResult(result);
 
     updateOutputResult(result);
 
@@ -210,11 +210,11 @@ function formatResult(result) {
   const output_precision = 5;
 
   if ( digitCounter(result) > max_output_number_length ) {
-    if (isFloat(result)) {
+    if ( isFloat(result) ) {
       const result_int = parseInt(result);
       const result_int_length = digitCounter(result_int);
 
-      if (result_int_length > max_output_number_length) {
+      if ( result_int_length > max_output_number_length ) {
         return result.toPrecision(output_precision);
       }
       else {
@@ -224,7 +224,7 @@ function formatResult(result) {
     }
     else {
       // if the number is an integer
-      return result.toPrecision(output_precision)
+      return result.toPrecision(output_precision);
     }
   }
   else {
