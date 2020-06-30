@@ -175,12 +175,23 @@ function calculator(button) {
     }
   }
   else if ( button.type == "calculate" ) {
-    
+    let join_result = data.result.join('');
+    let result = eval(join_result);
+
+    updateOutputResult(result);
+
+    data.operation = [];
+    data.result = [];
+
+    data.operation.push(result);
+    data.result.push(result);
+
+    return;
   }
   updateOutputOperation(data.operation.join(''));
 }
 
-// helpers
+// helper functions
 function updateOutputOperation(operation) {
   output_operation_element.innerHTML = operation;
 }
