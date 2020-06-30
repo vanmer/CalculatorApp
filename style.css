@@ -3,6 +3,7 @@
 * {
   padding: 0;
   margin: 0;
+  background-origin: padding-box;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
 }
@@ -72,6 +73,12 @@ body {
   border-radius: 0 0 25px 25px;
   border: 1px solid #1d1d1d;
   height: 340px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .row button {
