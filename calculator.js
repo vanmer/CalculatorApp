@@ -147,3 +147,26 @@ input_element.addEventListener("click", event => {
     if (button.name == target.btn.id) calculator(button);
   })
 })
+
+// calculator data
+let data = {
+  operation: [],
+  result: []
+}
+
+// calculator function
+function calulator(button) {
+  if ( button.type == "operator" ) {
+
+  } else if ( button.type == "number" ) {
+
+  } else if ( button.type == "key" ) {
+    if ( button.name == "clear" ) {
+
+    } else if ( button.name == "delete") {
+
+    }
+  } else if ( button.type == "calculate" ) {
+
+  }
+}
