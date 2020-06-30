@@ -121,7 +121,6 @@ let calculator_buttons = [
   },
 ]
 
-
 // create calculator buttons
 function createButtons() {
   const btns_per_row = 4;
@@ -138,5 +137,13 @@ function createButtons() {
     added_btns++;
   })
 }
-
 createButtons();
+
+// click event
+input_element.addEventListener("click", event => {
+  const target_btn = event.target;
+
+  calculator_buttons.forEach( button => {
+    if (button.name == target.btn.id) calculator(button);
+  })
+})
