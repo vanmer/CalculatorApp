@@ -177,7 +177,18 @@ function calculator(button) {
   }
   else if ( button.type == "calculate" ) {
     let join_result = data.result.join('');
-    let result = eval(join_result);
+    let result;
+
+    // check if there is an syntax error in the operation
+    try {
+      result = eval(join_result);
+    } catch (error) {
+      if ( error instanceof SyntaxError ) {
+        result = "Syntax Error!";
+        updateOutputResult(result)
+        return;
+      }
+    }
 
     result = formatResult(result);
 
