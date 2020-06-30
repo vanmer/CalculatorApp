@@ -157,16 +157,25 @@ let data = {
 // calculator function
 function calulator(button) {
   if ( button.type == "operator" ) {
-
-  } else if ( button.type == "number" ) {
-
-  } else if ( button.type == "key" ) {
+    data.operation.push(button.symbol);
+    data.result.push(button.formula);
+  }
+  else if ( button.type == "number" ) {
+    data.operation.push(button.symbol);
+    data.result.push(button.formula);
+  }
+  else if ( button.type == "key" ) {
     if ( button.name == "clear" ) {
-
+      data.operation = [];
+      data.result = [];
+      updateOutputResult(0);
     } else if ( button.name == "delete") {
-
+      data.operation.pop();
+      data.result.pop();
     }
-  } else if ( button.type == "calculate" ) {
+  }
+  else if ( button.type == "calculate" ) {
 
   }
+  updateOutputOperation(data.operation.join(''));
 }
