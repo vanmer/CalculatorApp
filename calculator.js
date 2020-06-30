@@ -144,7 +144,7 @@ input_element.addEventListener("click", event => {
   const target_btn = event.target;
 
   calculator_buttons.forEach( button => {
-    if (button.name == target.btn.id) calculator(button);
+    if (button.name == target_btn.id) calculator(button);
   })
 })
 
@@ -155,7 +155,7 @@ let data = {
 }
 
 // calculator function
-function calulator(button) {
+function calculator(button) {
   if ( button.type == "operator" ) {
     data.operation.push(button.symbol);
     data.result.push(button.formula);
@@ -175,7 +175,16 @@ function calulator(button) {
     }
   }
   else if ( button.type == "calculate" ) {
-
+    
   }
   updateOutputOperation(data.operation.join(''));
+}
+
+// helpers
+function updateOutputOperation(operation) {
+  output_operation_element.innerHTML = operation;
+}
+
+function updateOutputResult(result) {
+  output_result_element.innerHTML = result;
 }
