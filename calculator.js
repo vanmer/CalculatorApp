@@ -103,7 +103,7 @@ let calculator_buttons = [
     type: "operator"
   },
   {
-    name: "0",
+    name: "O",
     symbol: 0,
     formula: 0,
     type: "number"
