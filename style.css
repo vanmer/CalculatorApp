@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+:root {
+  --primary-color: #1d1d1d;
+  --secondary-color: #fff;
+  --third-color: #46e0bc;
+  --fourth-color: #e05046;
+  --fifth-color: #F4E3B2;
+  --sixth-color: #05668d;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,7 +19,7 @@
 
 body {
   font-size: 16px;
-  background-color: #F4E3B2;
+  background-color: var(--fifth-color);
 }
 
 .calculator {
@@ -21,7 +30,7 @@ body {
 }
 
 .calc-container {
-  background-color: #1d1d1d;
+  background-color: var(--primary-color);
   width: 300px;
   height: auto;
   border-radius: 0 0 30px 30px;
@@ -52,7 +61,7 @@ body {
 .result {
   width: 300px;
   height: 140px;
-  color: #FFF;
+  color: var(--secondary-color);
   font-size: 2.7em;
   font-weight: 700;
   overflow: hidden;
@@ -69,9 +78,9 @@ body {
 }
 
 .input {
-  background-color: #FFF;
+  background-color: var(--secondary-color);
   border-radius: 0 0 25px 25px;
-  border: 2px solid #1d1d1d;
+  border: 2px solid var(--primary-color);
   height: 340px;
 }
 
@@ -97,24 +106,25 @@ body {
 }
 
 .row #calculate {
-  color: #FFF;
-  background-color: #46e0bc;
+  color: var(--secondary-color);
+  background-color: var(--third-color);
   width: 121px;
   border-radius: 50px;
 }
 
 .row #delete {
-  color: #FFF;
-  background-color: #e05046;
+  color: var(--secondary-color);
+  background-color: var(--fourth-color);
 }
 
 #division, #multiplication, #subtraction, #addition {
-  color: #05668d;
+  color: var(--sixth-color);
 }
 
 @media (max-width: 500px) {
   body {
     overflow: hidden;
+    background-color: var(--primary-color);
   }
   .calculator {
     position: absolute;
